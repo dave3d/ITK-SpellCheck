@@ -1,0 +1,21 @@
+#! /bin/bash
+
+
+# Download the ITK codebase
+if [ -d "ITK" ]; then
+    pushd ITK
+    git pull
+    popd
+else
+    git clone https://github.com/InsightSoftwareConsortium/ITK.git
+fi
+
+# Download the spellchecking code
+if [ ! -e "codespell.py" ]; then
+    curl -O https://raw.githubusercontent.com/SimpleITK/SimpleITKSpellChecking/main/codespell.py
+fi
+
+# Download SimpleITK's word dictionary
+if [ ! -e "additional_dictionary.txt" ]; then
+    curl -O https://raw.githubusercontent.com/SimpleITK/SimpleITK/master/.github/workflows/additional_dictionary.txt
+fi

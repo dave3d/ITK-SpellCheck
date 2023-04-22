@@ -1,0 +1,35 @@
+#! /bin/bash
+
+echo "Spell checking Modules"
+ret=`python codespell.py \
+         --vim \
+         --prefix "gdcm" --exclude ThirdParty \
+         --dict additional_dictionary.txt \
+         --dict itk_dict.txt \
+         --suffix ".h" \
+         --suffix ".hxx" \
+         --suffix ".py" \
+         ~/repos/ITK/Modules > modules.log`
+
+echo $ret
+
+if [ $ret ]; then
+    echo "Found spelling bugs in Modules"
+fi
+
+echo "Spell checking Examples"
+ret=`python codespell.py \
+         --vim \
+         --prefix "gdcm" \
+         --dict additional_dictionary.txt \
+         --dict itk_dict.txt \
+         --suffix ".h" \
+         --suffix ".hxx" \
+         --suffix ".py" \
+         --suffix ".cxx" \
+         ~/repos/ITK/Examples > examples.log`
+
+if [ $ret ]; then
+    echo "Found spelling bugs in Examples"
+fi
+
