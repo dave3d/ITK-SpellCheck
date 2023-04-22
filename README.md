@@ -22,3 +22,9 @@ To run the spell checker:
     3. Run the 'spell' script that actually performs the spell checking.  The
        voluminous output of the spell checker is written to 'modules.log' and
        'examples.log'.
+
+The main spell checking script, 'codespell.py' comes from the following repo:
+    https://github.com/SimpleITK/SimpleITKSpellChecking
+    
+The file 'itk_dict.txt' contains the dictionary of acceptable words found in
+ITK.
