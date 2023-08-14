@@ -1,7 +1,7 @@
 #! /bin/bash
 
 echo "Spell checking Modules"
-ret=`python codespell.py \
+ret=`python comment_spell_check.py \
          --vim \
          --prefix "gdcm" --exclude ThirdParty \
          --dict additional_dictionary.txt \
@@ -9,7 +9,7 @@ ret=`python codespell.py \
          --suffix ".h" \
          --suffix ".hxx" \
          --suffix ".py" \
-         ~/repos/ITK/Modules > modules.log`
+         ITK/Modules > modules.log`
 
 echo $ret
 
@@ -18,7 +18,7 @@ if [ $ret ]; then
 fi
 
 echo "Spell checking Examples"
-ret=`python codespell.py \
+ret=`python comment_spell_check.py \
          --vim \
          --prefix "gdcm" \
          --dict additional_dictionary.txt \
@@ -27,7 +27,7 @@ ret=`python codespell.py \
          --suffix ".hxx" \
          --suffix ".py" \
          --suffix ".cxx" \
-         ~/repos/ITK/Examples > examples.log`
+         ITK/Examples > examples.log`
 
 if [ $ret ]; then
     echo "Found spelling bugs in Examples"

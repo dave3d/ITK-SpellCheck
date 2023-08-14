@@ -12,7 +12,7 @@ fi
 
 # Download the spellchecking code
 if [ ! -e "codespell.py" ]; then
-    curl -O https://raw.githubusercontent.com/SimpleITK/SimpleITKSpellChecking/main/codespell.py
+    curl -O https://raw.githubusercontent.com/SimpleITK/CommentSpellCheck/main/comment_spell_check.py
 fi
 
 # Download SimpleITK's word dictionary
